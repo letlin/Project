@@ -1,23 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-
+import Home_comp from "./views/Home.vue"
+import FindDocument_comp from "./views/FindDocument.vue"
+import NotFound_comp from "./components/NotFound.vue"
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home_comp
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+      path: '/tim-kiem-giay-to',
+      name: 'finddocument',
+      component: FindDocument_comp
+    },
+    { path: "*", component: NotFound_comp }
   ]
 })
+router.beforeEach((to, from, next) => {
+  if (!to.matched.length) {
+    next('/notFound');
+  } else {
+    next();
+  }
+});
+export default router;
