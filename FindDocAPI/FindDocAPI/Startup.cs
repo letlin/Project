@@ -24,6 +24,15 @@ namespace FindDocAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(Options =>
+                {
+                Options.AddDefaultPolicy(
+                    builder =>
+
+                    {
+                        builder.AllowAnyOrigin();
+                    });
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -34,8 +43,9 @@ namespace FindDocAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors();
             app.UseMvc();
+           
         }
     }
 }

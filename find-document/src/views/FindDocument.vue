@@ -7,6 +7,7 @@
             </a>
         </div>
         <div class="col-sm-6">
+              <div class="card-title"> <label class="text-danger" role="alert">Mọi hành vi mua bán, đánh cắp giấy tờ, thông tin của người khác đề là hành vi vi phạm pháp luật.</label></div>
             <h4 class="text-info">Thông tin về bạn</h4>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Họ tên</label>
@@ -18,13 +19,21 @@
                 <label for="exampleFormControlSelect1" class="col-sm-4 col-form-label">Địa chỉ liên hệ</label>
                 <div class="col-sm-8">
                     <select v-model="requestModel.maTinhNn" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
-                    <option>Tỉnh/thành phố</option>
+                    <option v-for="(item, index) in dataInit.dsTinh" v-bind:key="index" v-bind:value="item.maTinh">
+                        {{item.tenTinh}}
+                    </option>
                     </select>
-                    <select v-model="requestModel.maHuyenNn" name="exampleFormControlSelect2" class="form-control" id="exampleFormControlSelect2">
-                    <option>huyện/thị trấn</option>
+
+                     <select v-model="requestModel.maHuyenNn" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
+                    <option v-for="(item, index) in dataInit.dsHuyen" v-bind:key="index" v-bind:value="item.maHuyen">
+                        {{item.tenHuyen}}
+                    </option>
                     </select>
-                    <select v-model="requestModel.maXaNn" name="exampleFormControlSelect3" class="form-control" id="exampleFormControlSelect3">
-                    <option>phường/xã</option>
+
+                    <select v-model="requestModel.maXan" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
+                    <option v-for="(item, index) in dataInit.dsXa" v-bind:key="index" v-bind:value="item.maXa">
+                        {{item.tenXa}}
+                    </option>
                     </select>
                 </div>
             </div>
@@ -42,6 +51,9 @@
                                 <label for="exampleFormControlSelect1" class="col-sm-4 col-form-label">Loại giấy tờ</label>
                                 <div class="col-sm-8">
                                     <select v-model="requestModel.maLoai" class="form-control" id="exampleFormControlSelect1">
+                                        <option v-for="(item, index) in dataInit.loaiGiayTo" v-bind:key="index" v-bind:value="item.maLoai">
+                                            {{item.tenLoai}}
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -54,15 +66,23 @@
                 <div class="form-group row">
                     <label for="exampleFormControlSelect1" class="col-sm-4 col-form-label"> Nơi bạn nhặt được giấy tờ</label>
                         <div class="col-sm-8">
-                            <select v-model="requestModel.maTinh" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
-                            <option>Tỉnh/thành phố</option>
-                            </select>
-                            <select  v-model="requestModel.maHuyen" name="exampleFormControlSelect2" class="form-control" id="exampleFormControlSelect2">
-                            <option>huyện/thị trấn</option>
-                            </select>
-                            <select  v-model="requestModel.maXa" name="exampleFormControlSelect3" class="form-control" id="exampleFormControlSelect3">
-                            <option>phường/xã</option>
-                            </select>
+                             <select v-model="requestModel.maTinhNd" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
+                    <option v-for="(item, index) in dataInit.dsTinh" v-bind:key="index" v-bind:value="item.maTinh">
+                        {{item.tenTinh}}
+                    </option>
+                    </select>
+
+                              <select v-model="requestModel.maHuyenNd" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
+                    <option v-for="(item, index) in dataInit.dsHuyen" v-bind:key="index" v-bind:value="item.maHuyen">
+                        {{item.tenHuyen}}
+                    </option>
+                    </select>
+
+                              <select v-model="requestModel.maXaNd" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
+                    <option v-for="(item, index) in dataInit.dsXa " v-bind:key="index" v-bind:value="item.maXa">
+                        {{item.tenXa}}
+                    </option>
+                    </select>
                         </div>
                     </div>
 
@@ -79,12 +99,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="text-danger">Vui lòng up ảnh giấy tờ đánh rơi</label>
-                    <label class="text-danger">**LƯU Ý: vì đảm bảo sự an toàn cho thông tin cá nhân của chính chủ yêu cầu cần che đi những thông tin như:Số CMND, số thẻ ngân hàng và một số thông tin nhạy cảm khác,...nếu bạn không thực hiện điều này thì chúng tôi sẽ tiến hành sửa đổi ảnh mà bạn đã upload lên hệ thống để đảm an toàn- trật tự xã hội..XIN CẢM ƠN</label>
+                    <label class="">Vui lòng up ảnh giấy tờ đánh rơi</label>
+                    <label class="text-danger">LUƯ Ý: CÓ THỂ CHỨA CÁC THÔNG TIN NHẠY CẢM, BẠN NÊN LÀM MỜ CÁC THÔNG TIN NHẠY CẢM NHƯ:CÁC MÃ SỐ BÍ MẬT DUY NHẤT,...ĐỂ ĐẢM BẢO SỰ AN TOÀN CHO CHÍNH CHỦ</label>
+                     
                     <input type="file" class="form-control-file">
                     
                 </div>
                 <button type="button" @click="dosubmit()" class="btn btn-primary btn-lg" name="button">Đăng bài</button>
+           <label class="card-title">__
+               THAY MẶT NGƯỜI LÀM RƠI GIẤY TỜ - XIN CHÂN THÀNH CẢM ƠN HÀNH ĐỘNG ĐẦY TÍNH NHÂN VĂN CỦA BẠN</label>
             </div>
             <div class="form-group">
         </div>
@@ -129,7 +152,7 @@ export default {
                 trangThai:null,
                 hinhAnh:null,
                 maNguoiNhat:null,
-                maLoai:null,
+                maLoai: 1,
                 ngayNhat:null,
 
                 hoTen:null,
@@ -138,22 +161,25 @@ export default {
                 maTinhNn:null,
                 maHuyenNn:null,
             },
-            posts: {}
+            dataInit:{
+                loaiGiayTo: {},
+                dsTinh: { },
+                dsHuyen:{},
+                dsXa:{}
+            }
+
         }
     },
-    methods:{
-        dosubmit: function(){
-            var _this = this;
-            //http://localhost:50616/dangtin/dangtin
-            axios.post("http://localhost:50616/dangtin", _this.requestModel).then(response => {
-
-                _this.posts = response.data;
-            })
-            .catch(e => {
-                //this.errors.push(e)
-            })
-        }
+    mounted(){
+         var _this = this;
+        axios.get("http://localhost:5004/dangtin").then(response => {
+        debugger;
+            _this.dataInit.loaiGiayTo = response.data.listLoaiGiayTo;
+            _this.dataInit.dsTinh = response.data.listTinh;
+            _this.dataInit.dsHuyen = response.data.listHuyen;
+            _this.dataInit.dsXa = response.data.listXa;
+debugger;
+        }).catch(error => console.log(error))
     }
 }
 </script>
-

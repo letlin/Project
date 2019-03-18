@@ -2,14 +2,14 @@
     <div class="row" >
         <div class="col-sm-3">
             <a >
-                   <!-- <img src="@/assets/images/h1.PNG" class="card-img-top" alt="">    -->
-                <!-- <img src="@/assets/images/roi-giay-to1.jpg" class="card-img-top" alt="banner">
-                <img src="@/assets/images/quality-comparison-blog.jpg" class="card-img-top" alt="banner"> -->
+                
+                 <img src="@/assets/images/roi-giay-to1.jpg" class="card-img-top" alt="banner">
+                <img src="@/assets/images/quality-comparison-blog.jpg" class="card-img-top" alt="banner">
                
                  <div class="card-title">
                 
                   </div>
-    
+<!--     
             <div class="card-title">
                       <h5 class="alert alert-info" role="LawnGreen">Tin tức Từ hệ thống</h5>
                       </div>
@@ -24,20 +24,26 @@
                   </div>
                   <div class="card-title">
                         <h6 class= "alert alert-info" role="LawnGreen"> 5 bản tin đã bị xóa vì vi phạm nội quy web</h6>
-                  </div>
+                  </div> -->
+                    
             </a>
         </div>
         <div class="col-sm-6">
+             <div class="card-title"> <label class="text-danger" role="alert">Mọi hành vi mua bán, đánh cắp giấy tờ, thông tin của người khác đề là hành vi vi phạm pháp luật.</label></div>
           <div class="card">
               <div class="card-body">
+                  
                   <div class="card-title">
                       <h3 class="alert alert-info" role="alert">Tìm chính chủ của giấy tờ thất lạc</h3>
                   </div>
                   <div class="row">
+                      
                       <div class="col-sm-5">
+                         
                 
                           <img src="@/assets/images/Canh.jpg" class="card-img-top" alt="">
                       </div>
+                     
                       <div class="col-sm-6">
                           <p><u>Thông tin về người nhặt được giấy tờ </u></p>
                           <p>Họ tên:</p>
