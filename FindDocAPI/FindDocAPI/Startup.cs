@@ -28,9 +28,8 @@ namespace FindDocAPI
                 {
                 Options.AddDefaultPolicy(
                     builder =>
-
                     {
-                        builder.AllowAnyOrigin();
+                        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
                     });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

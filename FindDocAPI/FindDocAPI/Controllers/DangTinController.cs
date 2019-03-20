@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FindDocAPI.Bean;
 using FindDocAPI.Models;
 using FindDocAPI.RespModels;
 using FindDocAPI.Services;
@@ -22,32 +23,42 @@ namespace FindDocAPI.Controllers
         
             List<LoaiGiayTo> LoaiGiayToList = LoaiGiayToServices.Instance.getLoaiGiayTo();
             List<Tinh> TinhList = DiaChiServices.Instance.getTinh();
-            List<Huyen> HuyenList = DiaChiServices.Instance.getHuyen();
-            List<Xa> XaList = DiaChiServices.Instance.getXa();
+            //
+            //
 
             duLieuLV.ListLoaiGiayTo = LoaiGiayToList;
             duLieuLV.ListTinh = TinhList;
-            duLieuLV.ListHuyen = HuyenList;
-            duLieuLV.ListXa = XaList;
+            //duLieuLV.ListHuyen = HuyenList;
+           // duLieuLV.ListXa = XaList;
             return duLieuLV;
         }
 
-        // GET api/values/5
+        // GET /dangtin/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Object> Get(int id, int data)
         {
-            return "value";
+            Object result = new Object();
+            if(id == 2)
+            {
+                List<Huyen> HuyenList = DiaChiServices.Instance.getHuyen();
+                result =  HuyenList;
+            }
+            else
+            {
+                List<Xa> XaList = DiaChiServices.Instance.getXa();
+                result = XaList;
+            }
+            return result;
         }
 
         // POST /dangtin
         [HttpPost]
-        public int Post([FromBody] Object value)
+        public ActionResult<Object> Post([FromBody] Object reqModel)
         {
-            int result = 0;
-            String sqlString = "insert into LoaiGiayTo(maLoai, tenLoai) values('1', 'abcdefv')";
-            result = DataProvider.Instance.ExcuteNonQuery(sqlString);
+            DangTinReqModel a = (DangTinReqModel)reqModel;
+            Object obj = reqModel;
+            return obj;
 
-            return result;
         }
 
         // PUT api/values/5

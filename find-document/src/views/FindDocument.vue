@@ -18,22 +18,22 @@
             <div class="form-group row">
                 <label for="exampleFormControlSelect1" class="col-sm-4 col-form-label">Địa chỉ liên hệ</label>
                 <div class="col-sm-8">
-                    <select v-model="requestModel.maTinhNn" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
-                    <option v-for="(item, index) in dataInit.dsTinh" v-bind:key="index" v-bind:value="item.maTinh">
-                        {{item.tenTinh}}
-                    </option>
+                    <select v-model="requestModel.maTinhNn" @change="onChangeTinh()" class="form-control" >
+                        <option v-for="(item, index) in dataInit.dsTinh" v-bind:key="index" v-bind:value="item.maTinh">
+                            {{item.tenTinh}}
+                        </option>
                     </select>
 
-                     <select v-model="requestModel.maHuyenNn" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
-                    <option v-for="(item, index) in dataInit.dsHuyen" v-bind:key="index" v-bind:value="item.maHuyen">
-                        {{item.tenHuyen}}
-                    </option>
+                    <select v-model="requestModel.maHuyenNn" @change="onChangeHuyen()" class="form-control mt-1">
+                        <option v-for="(item, index) in dataInit.dsHuyen" v-bind:key="index" v-bind:value="item.maHuyen">
+                            {{item.tenHuyen}}
+                        </option>
                     </select>
 
-                    <select v-model="requestModel.maXan" name="exampleFormControlSelect" class="form-control" id="exampleFormControlSelect1">
-                    <option v-for="(item, index) in dataInit.dsXa" v-bind:key="index" v-bind:value="item.maXa">
-                        {{item.tenXa}}
-                    </option>
+                    <select v-model="requestModel.maXan"  class="form-control mt-1">
+                        <option v-for="(item, index) in dataInit.dsXa" v-bind:key="index" v-bind:value="item.maXa">
+                            {{item.tenXa}}
+                        </option>
                     </select>
                 </div>
             </div>
@@ -140,6 +140,7 @@
 </template>
 <script>
 import axios from 'axios';
+import { debuglog } from 'util';
 export default {
     name: 'FindDocument',
     data() {
@@ -171,15 +172,32 @@ export default {
         }
     },
     mounted(){
-         var _this = this;
+        var _this = this;
         axios.get("http://localhost:5004/dangtin").then(response => {
-        debugger;
             _this.dataInit.loaiGiayTo = response.data.listLoaiGiayTo;
             _this.dataInit.dsTinh = response.data.listTinh;
-            _this.dataInit.dsHuyen = response.data.listHuyen;
-            _this.dataInit.dsXa = response.data.listXa;
-debugger;
-        }).catch(error => console.log(error))
-    }
+            // _this.dataInit.dsHuyen = response.data.listHuyen;
+            // _this.dataInit.dsXa = response.data.listXa;
+        }).catch(error => console.log(error));
+
+    },
+    methods: {
+        onChangeTinh: function(){
+            var _this = this;
+            var reqMode = {};
+            reqMode.type = 2;
+            reqMode.maTinh = _this.requestModel.maTinhNn;
+            reqMode.maHuyen = 0;
+            
+            axios.post("http://localhost:5004/dangtin/", reqMode).then(response => {
+debugger
+            _this.dataInit.dsHuyen = response.data;
+            // _this.dataInit.dsXa = response.data.listXa;
+        }).catch(error => console.log(error));
+        },
+        onChangeHuyen: function(){
+
+        }
+    },
 }
 </script>
