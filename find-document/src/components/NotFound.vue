@@ -5,9 +5,9 @@
                 <h1>
                     XIN LỖI!!!</h1>
                 <h2>
-                  Tính năng này đang được nghiên cứu và phát triển</h2>
+                trang web đang gặp sự cố</h2>
                 <div class="error-details">
-                    Dự kiến tính năng này sẽ được hoàn thiện vào dịp bảo vệ đồ án tốt nghiệp năm 2019 của ___Lê T Lin__
+                  Chúng tôi đang cố gắng để khắc phục nó
                 </div>
                 <div class="error-actions">
                     <router-link :to="{ name: 'home'}" class="nav-link"><h2> Về lại Trang chủ nhé!!</h2></router-link>

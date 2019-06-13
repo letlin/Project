@@ -22,8 +22,9 @@
                 </div>
                
                  <div class="carousel-item">
-                    <h5>BẢN QUYỀN TRANG WEB THUỘC VỀ Lê T Lin @2018 mọi quyền đều được bảo vệ</h5>
+                    <h5>BẢN QUYỀN TRANG WEB THUỘC VỀ Lê T Lin @2019 mọi quyền đều được bảo vệ</h5>
                 </div>
+                 
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -37,6 +38,7 @@
         </div>
         <div class="col-md-2"></div>
         </div>
+        
 </template>
 <script>
 export default {

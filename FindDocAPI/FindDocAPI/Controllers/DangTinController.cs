@@ -6,6 +6,7 @@ using FindDocAPI.Bean;
 using FindDocAPI.Models;
 using FindDocAPI.RespModels;
 using FindDocAPI.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,42 +24,30 @@ namespace FindDocAPI.Controllers
         
             List<LoaiGiayTo> LoaiGiayToList = LoaiGiayToServices.Instance.getLoaiGiayTo();
             List<Tinh> TinhList = DiaChiServices.Instance.getTinh();
-            //
-            //
 
             duLieuLV.ListLoaiGiayTo = LoaiGiayToList;
             duLieuLV.ListTinh = TinhList;
-            //duLieuLV.ListHuyen = HuyenList;
-           // duLieuLV.ListXa = XaList;
+
             return duLieuLV;
         }
 
-        // GET /dangtin/5
         [HttpGet("{id}")]
         public ActionResult<Object> Get(int id, int data)
         {
             Object result = new Object();
-            if(id == 2)
-            {
-                List<Huyen> HuyenList = DiaChiServices.Instance.getHuyen();
-                result =  HuyenList;
-            }
-            else
-            {
-                List<Xa> XaList = DiaChiServices.Instance.getXa();
-                result = XaList;
-            }
+           
             return result;
         }
 
-        // POST /dangtin
+        // POST api/values
         [HttpPost]
-        public ActionResult<Object> Post([FromBody] Object reqModel)
+        public bool Post([FromBody] DangTinModel value)
         {
-            DangTinReqModel a = (DangTinReqModel)reqModel;
-            Object obj = reqModel;
-            return obj;
+            if(DangTinService.Instance.saveMessage(value) >= 1){
+                return true;
+            }
 
+            return false;
         }
 
         // PUT api/values/5

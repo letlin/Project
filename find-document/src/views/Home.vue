@@ -1,144 +1,118 @@
 <template>
     <div class="row" >
         <div class="col-sm-3">
-            <a >
-                
-                 <img src="@/assets/images/roi-giay-to1.jpg" class="card-img-top" alt="banner">
-                <img src="@/assets/images/quality-comparison-blog.jpg" class="card-img-top" alt="banner">
-               
-                 <div class="card-title">
+              <div class="card-title"> </div>
+                  
                 
                   </div>
-<!--     
-            <div class="card-title">
-                      <h5 class="alert alert-info" role="LawnGreen">Tin tức Từ hệ thống</h5>
-                      </div>
-            <div class="card-title">
-                       <h6 class="alert alert-info" role="LawnGreen"> 1542 máy đang truy cập</h6>
-                       </div>
-            <div class="card-title">
-                        <h6 class="alert alert-info" role="LawnGreen"> 455 bản tin đã được đăng lên hệ thống</h6>
-                        </div>
-            <div class="card-title">
-                        <h6 class="alert alert-info" role="LawnGreen"> 15 bản tin đang chờ duyệt</h6>
-                  </div>
-                  <div class="card-title">
-                        <h6 class= "alert alert-info" role="LawnGreen"> 5 bản tin đã bị xóa vì vi phạm nội quy web</h6>
-                  </div> -->
-                    
-            </a>
+
         </div>
         <div class="col-sm-6">
-             <div class="card-title"> <label class="text-danger" role="alert">Mọi hành vi mua bán, đánh cắp giấy tờ, thông tin của người khác đề là hành vi vi phạm pháp luật.</label></div>
-          <div class="card">
-              <div class="card-body">
-                  
-                  <div class="card-title">
-                      <h3 class="alert alert-info" role="alert">Tìm chính chủ của giấy tờ thất lạc</h3>
-                  </div>
-                  <div class="row">
-                      
-                      <div class="col-sm-5">
-                         
-                
-                          <img src="@/assets/images/Canh.jpg" class="card-img-top" alt="">
-                      </div>
-                     
-                      <div class="col-sm-6">
-                          <p><u>Thông tin về người nhặt được giấy tờ </u></p>
-                          <p>Họ tên:</p>
-                          <p>Giới tính:</p>
-                          <p>Quê quán:</p>
-                          <p>Số điện thoại liên hệ</p>
-                          <p>Ghi chú của người nhặt được</p>
-                          <p><u>Thông tin về giấy tờ đang tìm chính chủ </u></p>
-                          <p>Loại Giấy tờ:</p>
-                          <p>Ngày nhặt được:</p>
-                           <p>Nơi nhặt được:</p>
-                      </div>
-                  </div>
-                  <!-- <div class="alert alert-primary row">
-                      <div class="col-sm-4" style="text-align: center;">
-                          <button type="button" class="btn btn-primary btn-lg" name="button">Thích</button>
-                      </div>
-                      <div class="col-sm-4" style="text-align: center;">
-                          <button type="button" class="btn btn-primary btn-lg" name="button">Bình luận</button>
-                      </div>
-                      <div class="col-sm-4" style="text-align: center;">
-                          <button type="button" class="btn btn-primary btn-lg" name="button">Chia sẻ</button>
-                      </div>
-                  </div> -->
-              </div>
-          </div>
-          <div class="card">
-              <div class="card-body">
-                  <div class="card-title">
-                     <h3 class="alert alert-info" role="alert">Tìm chính chủ của giấy tờ thất lạc</h3>
-                  </div>
-                  <div class="row">
-                      <div class="col-sm-6">
-                
-                          <img src="@/assets/images/Canh.jpg" class="card-img-top" alt="">
-                      </div>
-                      <div class="col-sm-6">
-                          <p><u>Thông tin về người nhặt được giấy tờ </u></p>
-                          <p>Họ tên:</p>
-                          <p>Giới tính:</p>
-                          <p>Quê quán:</p>
-                          <p>Số điện thoại liên hệ</p>
-                          <p>Ghi chú của người nhặt được</p>
-                          <p><u>Thông tin về giấy tờ đang tìm chính chủ </u></p>
-                          <p>Loại Giấy tờ:</p>
-                          <p>Ngày nhặt được:</p>
-                           <p>Nơi nhặt được:</p>
-                      </div>
-                  </div>
-                  <!-- <div class="alert alert-primary row">
-                      <div class="col-sm-4" style="text-align: center;">
-                          <button type="button" class="btn btn-primary btn-lg" name="button">Thích</button>
-                      </div>
-                      <div class="col-sm-4" style="text-align: center;">
-                          <button type="button" class="btn btn-primary btn-lg" name="button">Bình luận</button>
-                      </div>
-                      <div class="col-sm-4" style="text-align: center;">
-                          <button type="button" class="btn btn-primary btn-lg" name="button">Chia sẻ</button>
-                      </div>
-                  </div> -->
-              </div>
-          </div>
+             <div class="card-title"> <label class="text-danger" role="alert">Hiện nay tình trạng lừa đảo xảy khá phổ biến, bạn nên cẩn trọng khi tiếp nhận thông tin</label></div>
+            
+            <div v-for="(item, index) in homeInit" :key="index" class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="alert alert-info" role="alert">Tìm chính chủ của giấy tờ thất lạc</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img src="@/assets/images/Canh.jpg" class="card-img-top" alt=""> 
+                        </div>
+                        <div class="col-sm-6">
+                            <p><u>Thông tin về người nhặt được giấy tờ </u></p>
+                            <p>Họ tên: {{item.hoTen}}</p>
+                            <p>Số điện thoại liên hệ: {{item.soDienThoai}}</p>
+                              <p>Ghi chú: {{item.ghiChu}}</p>
+                            <p><u>Thông tin về giấy tờ đang tìm chính chủ </u></p>
+                            <p>Loại Giấy tờ: {{item.tenLoai}}</p>
+                            <p>Ngày nhặt được: {{item.ngayNhat}}</p>
+                            <p>Nơi nhặt được: {{item.tenXa}}-{{item.tenHuyen}}-{{item.tenTinh}} </p>
+                        </div>
+                        <vue-goodshare-facebook
+                                :page_url="urlShareFacebook"
+                                title_social="Facebook"
+                                has_counter
+                                has_icon
+                        ></vue-goodshare-facebook>
+                        <vue-goodshare-twitter 
+                        button_design="gradient"
+                        :page_url="urlShareFacebook" 
+                        has_icon
+                        ></vue-goodshare-twitter>
+                    </div>
+                </div>
+            </div>
         </div>
          <div class="col-sm-3">
-
             <a >
                 <div class="card-title">
                       <h3 class="alert alert-info" role="alert">Khu vực cho thuê quảng cáo</h3>
                   </div>
-          <img src="@/assets/images/banner-hoc-bong.png" class="card-img-top" alt="qc">   
-            <div class="card-title"> </div>
-            <img src="@/assets/images/rater-featured-image.jpg" class="card-img-top" alt="qc">
-             <div class="card-title"> </div>    
-            <img src="@/assets/images/240_F_117782591_AdAQ13K6xrDkhokujeIJxKTg0Ki4DafD.jpg" class="card-img-top" alt="qc">
-           
-           <div class="card-title">
-                      
-                  </div>
-            <div class="card-title">
-                      <h5 class="alert alert-info" role="alert">LIÊN HỆ QUẢNG CÁO</h5>
-                       <h6 class="alert alert-info" role="alert"> Holine:  0357485599</h6>
-                        <h6 class="alert alert-info" role="alert"> Gmail:  LVTLIN98@GMAIL.COM</h6>
+                    <a href="http://viethanit.edu.vn" target="_self"> 
+            <img src="@/assets/images/banner-hoc-bong.png"  class="card-img-top"  title="Viet Han IT - Một điểm tựa" alt="qc">   
+                        <div class="card-title"> </div>
+                        <img src="@/assets/images/vh2019.png" class="card-img-top" alt="qc"> </a>
+                        <div class="card-title"> </div>  
+                          <a href="https://thegioididong.com" target="_self">   
+                        <img src="@/assets/images/vm1.jpg" class="card-img-top" alt="qc">
+                         <div class="card-title"> </div>    
+                        <img src="@/assets/images/vm2.jpg" class="card-img-top" alt="qc">
+                          </a>
+                    
+                    <div class="card-title">
+                                
+                            </div>
+                        <div class="card-title">
+                                <h5 class="alert alert-info" role="alert">LIÊN HỆ QUẢNG CÁO</h5>
+                                <h6 class="alert alert-info" role="alert"> Holine:  0357485599</h6>
+                                <h6 class="alert alert-info" role="alert"> Gmail:  LVTLIN98@GMAIL.COM</h6>
                   </div>
                   
             </a>
-           
+         </div>
+         </div>   
         </div>
       </div>
 </template>
 
 <script>
-
+import axios from 'axios';
+import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook';
+import VueGoodshareTwitter from 'vue-goodshare/src/providers/Twitter.vue';
 export default {
-  name: 'home',
-  components: {
-  }
+    name: 'home',
+    components: {
+        VueGoodshareFacebook,
+        VueGoodshareTwitter
+    },
+    data() {
+        return {
+            urlShareFacebook: null,
+            homeInit:{
+                ghiChu: null,
+                hoTen: null,
+                ngayNhat: null,
+                soDienThoai:null,
+                tenHuyen: null,
+                tenLoai: null,
+                tenTinh: null,
+                tenXa:null,
+            }
+        }
+    },
+    mounted() {
+        var _this = this;
+        axios.get("http://localhost:5004/home").then(response => {
+            debugger;
+            _this.homeInit = response.data;
+        }).catch(error => console.log(error));
+        
+        _this.urlShareFacebook = window.location.href;
+    },
+    updated:{
+                
+    }
+
 }
 </script>

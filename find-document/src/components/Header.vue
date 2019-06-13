@@ -11,23 +11,25 @@
                 <router-link :to="{ name: 'home'}" class="nav-link">Trang chủ</router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="{ name: 'finddocument'}" class="nav-link">Tìm chính chủ</router-link>
+                <router-link :to="{ name: 'FindDocument'}" class="nav-link">Tìm chính chủ</router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="{ name: '/abc'}" class="nav-link">Tìm giấy tờ thất lạc</router-link>
+                <router-link :to="{ name: 'TimGiayTo'}" class="nav-link">Tìm giấy tờ thất lạc</router-link>
             </li>
-            <li class="nav-item">
-                <router-link :to="{ name: '/search'}" class="nav-link">Xem tin tức</router-link>
+            <li>
+           <marquee class="text-danger" direction="left" width="90%" role="alert">Mọi hành vi mua bán, trao đổi thông tin cá nhân, bịa đặt thông tin sai sự thật đều là hành vi vi phạm pháp luật
+                            </marquee>
+        
             </li>
-            
+        
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             
               
            
-            </form>
+            </form> -->
         </div>
     </nav>
 </template>

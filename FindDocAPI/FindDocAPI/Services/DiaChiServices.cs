@@ -62,12 +62,47 @@ namespace FindDocAPI.Services
             }
             return lst2;
         }
+        public List<Huyen> getHuyen(int id)
+        {
+            List<Huyen> lst2 = new List<Huyen>();
+
+            string sqlStr = @"select * from Huyen where maTinh = '" + id + "'";
+            DataTable dt = DataProvider.Instance.LoadAllTable(sqlStr);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Huyen itemT = new Huyen();
+
+                itemT.MaHuyen = Convert.ToInt32(row["maHuyen"].ToString());
+                itemT.TenHuyen = row["tenHuyen"].ToString();
+                lst2.Add(itemT);
+            }
+            return lst2;
+        }
         //Get ve table xa
         public List<Xa> getXa()
         {
             List<Xa> lst3 = new List<Xa>();
 
             string sqlStr = @"select * from Xa";
+            DataTable dt = DataProvider.Instance.LoadAllTable(sqlStr);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Xa itemT = new Xa();
+
+                itemT.MaXa = Convert.ToInt32(row["maXa"].ToString());
+                itemT.TenXa = row["tenXa"].ToString();
+                lst3.Add(itemT);
+            }
+            return lst3;
+        }
+        //Get ve table xa
+        public List<Xa> getXa(int id)
+        {
+            List<Xa> lst3 = new List<Xa>();
+
+            string sqlStr = @"select * from Xa where maHuyen = '"+ id + "'";
             DataTable dt = DataProvider.Instance.LoadAllTable(sqlStr);
 
             foreach (DataRow row in dt.Rows)
